@@ -1,11 +1,11 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+import { sliderItems } from "../data";
 import { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from '../data';
 
 enum ARROW_TYPE {
-  LEFT_ARROW = 'LEFT_ARROW',
-  RIGHT_ARROW = 'RIGHT_ARROW',
+  LEFT_ARROW = "LEFT_ARROW",
+  RIGHT_ARROW = "RIGHT_ARROW",
 }
 
 interface ArrowProps {
@@ -17,11 +17,11 @@ interface WrapperProps {
 }
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
   display: flex;
-  position: relative;
+  height: 100vh;
   overflow: hidden;
+  position: relative;
+  width: 100%;
 `;
 
 const Arrow = styled.div<ArrowProps>`
@@ -44,9 +44,10 @@ const Arrow = styled.div<ArrowProps>`
 `;
 
 const Wrapper = styled.div<WrapperProps>`
-  height: 100%;
   display: flex;
+  height: 100%;
   transform: translateX(${(props: any) => props.sliderIndex * -100}vw);
+  transition: all 1.5s ease;
 `;
 
 const Slide = styled.div`
@@ -57,11 +58,11 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  flex: 1;
-  height: 100%;
-  background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1;
+  height: 100%;
   width: 50%;
 `;
 
@@ -75,27 +76,27 @@ const Image = styled.img`
 `;
 
 const Title = styled.h1`
-text-transform: uppercase;
-font-size: 70px;
-color: #fff;
+  color: #fff;
+  font-size: 70px;
+  text-transform: uppercase;
 `;
 
 const Desc = styled.p`
-text-transform: uppercase;
-margin: 50px 0;
-font-size: 20px;
-font-weight: 500;
-letter-spacing: 3px;
-color: #fff;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin: 50px 0;
+  text-transform: uppercase;
 `;
 
 const Button = styled.button`
-border: 1px solid #fff;
-padding: 10px;
-font-size: 20px;
-background-color: transparent;
-cursor: pointer;
-color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
 `;
 
 const Slider = () => {
@@ -108,11 +109,14 @@ const Slider = () => {
     if (arrowType === ARROW_TYPE.RIGHT_ARROW) {
       setSlideIndex(slideIndex < sliderItems.length - 1 ? slideIndex + 1 : 0);
     }
-  }
+  };
 
   return (
     <Container>
-      <Arrow direction="left" onClick={() => handleClick(ARROW_TYPE.LEFT_ARROW)}>
+      <Arrow
+        direction="left"
+        onClick={() => handleClick(ARROW_TYPE.LEFT_ARROW)}
+      >
         <ArrowLeftOutlined />
       </Arrow>
       <Wrapper sliderIndex={slideIndex}>
@@ -129,7 +133,10 @@ const Slider = () => {
           </Slide>
         ))}
       </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick(ARROW_TYPE.RIGHT_ARROW)}>
+      <Arrow
+        direction="right"
+        onClick={() => handleClick(ARROW_TYPE.RIGHT_ARROW)}
+      >
         <ArrowRightOutlined />
       </Arrow>
     </Container>
