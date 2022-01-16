@@ -3,6 +3,7 @@ import Categories from "../../components/Categories";
 import Navbar from "../../components/Navbar";
 import React from "react";
 import Slider from "../../components/Slider";
+import Products from "../../components/Products";
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
       <Navbar />
       <Slider />
       <Categories />
+      <Products />
     </div>
   );
 };
