@@ -17,6 +17,7 @@ interface WrapperProps {
 }
 
 const Container = styled.div`
+  background-color: #333;
   display: flex;
   height: 100vh;
   overflow: hidden;
@@ -54,6 +55,7 @@ const Slide = styled.div`
   align-items: center;
   display: flex;
   height: 100vh;
+  position: relative;
   width: 100vw;
 `;
 
@@ -62,17 +64,17 @@ const ImgContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   flex: 1;
-  height: 100%;
-  width: 50%;
+  width: 100%;
 `;
 
 const InfoContainer = styled.div`
-  flex: 1;
   padding: 50px;
+  position: absolute;
+  right: 100px;
 `;
 
 const Image = styled.img`
-  height: 80%;
+  /* height: 80%; */
 `;
 
 const Title = styled.h1`
