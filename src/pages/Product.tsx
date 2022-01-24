@@ -1,3 +1,4 @@
+import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -47,30 +48,66 @@ const FilterContainer = styled.div`
 `;
 
 const Filter = styled.div`
-display: flex;
-align-items: center;
+  align-items: center;
+  display: flex;
 `;
 
 const FilterTitle = styled.span`
-font-size: 20px;
-font-weight: 200;
+  font-size: 20px;
+  font-weight: 200;
 `;
 
 const FilterColor = styled.div`
-width: 20px;
-height: 20px;
-border-radius: 50%;
-background-color: ${props => props.color};
-margin: 0 5px;
-cursor: pointer;
+  background-color: ${(props) => props.color};
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  margin: 0 5px;
+  width: 20px;
 `;
 
 const FilterSize = styled.select`
-margin-left: 10px;
-padding: 5px;
+  margin-left: 10px;
+  padding: 5px;
 `;
 
 const FilterSizeOption = styled.option``;
+
+const AddContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+`;
+
+const AmountContainer = styled.div`
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+`;
+
+const Amount = styled.span`
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid teal;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin: 0 5px;
+  width: 30px;
+`;
+
+const Button = styled.button`
+  background-color: #fff;
+  border: 2px solid teal;
+  cursor: pointer;
+  padding: 15px;
+  font-weight: 500;
+
+  &:hover {
+    background-color: #f8f4f4;
+  }
+`;
 
 const Product = () => {
   return (
@@ -109,6 +146,14 @@ const Product = () => {
               </FilterSize>
             </Filter>
           </FilterContainer>
+          <AddContainer>
+            <AmountContainer>
+              <Remove />
+              <Amount>1</Amount>
+              <Add />
+            </AmountContainer>
+            <Button>Add To Cart</Button>
+          </AddContainer>
         </InfoContainer>
       </Wrapper>
       <Newsletter />
