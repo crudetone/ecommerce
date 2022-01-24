@@ -1,16 +1,14 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 
-const Container = styled.div`
-
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
-  padding: 50px;
   display: flex;
+  padding: 50px;
 `;
 
 const ImgContainer = styled.div`
@@ -18,9 +16,9 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
   height: 60vh;
   object-fit: cover;
+  width: 100%;
 `;
 
 const InfoContainer = styled.div`
@@ -37,9 +35,42 @@ const Desc = styled.p`
 `;
 
 const Price = styled.span`
-  font-weight: 100;
   font-size: 40px;
+  font-weight: 100;
 `;
+
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+  width: 50%;
+`;
+
+const Filter = styled.div`
+display: flex;
+align-items: center;
+`;
+
+const FilterTitle = styled.span`
+font-size: 20px;
+font-weight: 200;
+`;
+
+const FilterColor = styled.div`
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: ${props => props.color};
+margin: 0 5px;
+cursor: pointer;
+`;
+
+const FilterSize = styled.select`
+margin-left: 10px;
+padding: 5px;
+`;
+
+const FilterSizeOption = styled.option``;
 
 const Product = () => {
   return (
@@ -52,14 +83,38 @@ const Product = () => {
         </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>
-          <Desc>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis amet blanditiis explicabo ratione at alias doloremque labore voluptas laudantium, quasi eius fugiat nostrum accusantium nihil suscipit aspernatur dolorum. Recusandae, quae.</Desc>
+          <Desc>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis
+            amet blanditiis explicabo ratione at alias doloremque labore
+            voluptas laudantium, quasi eius fugiat nostrum accusantium nihil
+            suscipit aspernatur dolorum. Recusandae, quae.
+          </Desc>
           <Price>$ 20</Price>
+          <FilterContainer>
+            <Filter>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="black" />
+              <FilterColor color="darkblue" />
+              <FilterColor color="grey" />
+            </Filter>
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+                <FilterSizeOption>XXL</FilterSizeOption>
+              </FilterSize>
+            </Filter>
+          </FilterContainer>
         </InfoContainer>
       </Wrapper>
       <Newsletter />
       <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
