@@ -1,13 +1,18 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
-align-items: center;
-background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/929245/pexels-photo-929245.jpeg?cs=srgb&dl=pexels-artem-beliaikin-929245.jpg&fm=jpg') center;
-background-size: cover;
-display: flex;
-height: 100vh;
-justify-content: center;
-width: 100vw;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/929245/pexels-photo-929245.jpeg?cs=srgb&dl=pexels-artem-beliaikin-929245.jpg&fm=jpg")
+      center;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 `;
 
 const Wrapper = styled.div`
@@ -64,7 +69,7 @@ const Login = () => {
         </Form>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

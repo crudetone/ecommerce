@@ -1,13 +1,18 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
-align-items: center;
-background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/2079438/pexels-photo-2079438.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center;
-background-size: cover;
-display: flex;
-height: 100vh;
-justify-content: center;
-width: 100vw;
+  align-items: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/2079438/pexels-photo-2079438.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+      center;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 `;
 
 const Wrapper = styled.div`
@@ -60,13 +65,16 @@ const Register = () => {
           <Input placeholder="password" />
           <Input placeholder="confirm password" />
           <Agreement>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod adipisci maxime, nemo, illo perferendis nostrum at deserunt aperiam tempore ipsa itaque illum modi. Repellat, et explicabo quos esse cumque molestiae!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+            adipisci maxime, nemo, illo perferendis nostrum at deserunt aperiam
+            tempore ipsa itaque illum modi. Repellat, et explicabo quos esse
+            cumque molestiae!
           </Agreement>
           <Button>Create</Button>
         </Form>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

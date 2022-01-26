@@ -1,5 +1,6 @@
 import './App.css';
-import Login from './pages/Login';
+import Cart from './pages/Cart';
+// import Login from './pages/Login';
 // import Register from './pages/Register';
 // import Product from './pages/Product';
 // import ProductList from './pages/ProductList';
@@ -7,7 +8,8 @@ import Login from './pages/Login';
 
 const App = () => {
   return (
-    <Login />
+    <Cart />
+    // <Login />
     // <Register />
     // <Home />
     // <ProductList />
