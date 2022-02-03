@@ -1,15 +1,17 @@
 import { Add, Remove } from "@material-ui/icons";
-import styled from "styled-components";
+import { mobile } from "../responsive";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
+import styled from "styled-components";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   display: flex;
   padding: 50px;
+  ${mobile({ padding: '10px', flexDirection: 'column' })}
 `;
 
 const ImgContainer = styled.div`
@@ -20,11 +22,13 @@ const Image = styled.img`
   height: 60vh;
   object-fit: cover;
   width: 100%;
+  ${mobile({ height: '40vh' })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0 50px;
+  ${mobile({ padding: '10px' })}
 `;
 
 const Title = styled.h1`
@@ -45,6 +49,7 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   margin: 30px 0;
   width: 50%;
+  ${mobile({ width: '100%' })}
 `;
 
 const Filter = styled.div`
@@ -78,6 +83,7 @@ const AddContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 50%;
+  ${mobile({ width: '100%' })}
 `;
 
 const AmountContainer = styled.div`

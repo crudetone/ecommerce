@@ -1,8 +1,9 @@
+import { Add, Remove } from "@material-ui/icons";
+import { mobile } from "../responsive";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-import { Add, Remove } from "@material-ui/icons";
 
 interface TopButtonProps {
   buttonType?: string;
@@ -16,6 +17,7 @@ const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -31,15 +33,17 @@ const Top = styled.div`
 `;
 
 const TopButton = styled.button<TopButtonProps>`
-  background-color: ${props => props.buttonType === 'filled' ? '#333' : 'transparent'};
-  border: ${props => props.buttonType === 'filled' && 'none'};
-  color: ${props => props.buttonType === 'filled' && '#fff'};
+  background-color: ${(props) =>
+    props.buttonType === "filled" ? "#333" : "transparent"};
+  border: ${(props) => props.buttonType === "filled" && "none"};
+  color: ${(props) => props.buttonType === "filled" && "#fff"};
   cursor: pointer;
   font-weight: 600;
   padding: 10px;
 `;
 
 const TopTexts = styled.div`
+  ${mobile({ display: 'none' })}
 `;
 
 const TopText = styled.span`
@@ -51,6 +55,7 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: 'column' })}
 `;
 
 const Info = styled.div`
@@ -61,6 +66,7 @@ const Product = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
+  ${mobile({ flexDirection: 'column' })}
 `;
 
 const ProductDetail = styled.div`
@@ -79,9 +85,7 @@ const Details = styled.div`
   padding: 20px;
 `;
 
-const ProductName = styled.span`
-  
-`;
+const ProductName = styled.span``;
 
 const PriceDetail = styled.div`
   align-items: center;
@@ -91,20 +95,16 @@ const PriceDetail = styled.div`
   justify-content: center;
 `;
 
-const ProductId = styled.span`
-  
-`;
+const ProductId = styled.span``;
 
 const ProductColor = styled.div`
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   border-radius: 50%;
   height: 20px;
   width: 20px;
 `;
 
-const ProductSize = styled.span`
-  
-`;
+const ProductSize = styled.span``;
 
 const ProductAmountContainer = styled.span`
   align-items: center;
@@ -115,11 +115,13 @@ const ProductAmountContainer = styled.span`
 const ProductAmount = styled.span`
   font-size: 24px;
   margin: 5px;
+  ${mobile({ margin: '5px 15px' })}
 `;
 
 const ProductPrice = styled.span`
   font-size: 30px;
   font-weight: 200;
+  ${mobile({ marginBottom: '20px' })}
 `;
 
 const Hr = styled.hr`
@@ -140,18 +142,14 @@ const SummaryTitle = styled.h1`
   font-weight: 200;
 `;
 
-const SummaryItemText = styled.span`
-  
-`;
+const SummaryItemText = styled.span``;
 
-const SummaryItemPrice = styled.span`
-  
-`;
+const SummaryItemPrice = styled.span``;
 
 const SummaryItem = styled.div<SummaryItemProps>`
   display: flex;
-  font-size: ${props => props.type === 'total' && '24px'};
-  font-weight: ${props => props.type === 'total' && '500'};
+  font-size: ${(props) => props.type === "total" && "24px"};
+  font-weight: ${(props) => props.type === "total" && "500"};
   justify-content: space-between;
   margin: 30px 0;
 `;
@@ -183,12 +181,18 @@ const Cart = () => {
           <Info>
             <Product>
               <ProductDetail>
-                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png"/>
+                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png" />
                 <Details>
-                  <ProductName><b>Product: </b> Nike Shoes</ProductName>
-                  <ProductId><b>Id: </b> Nike Shoes</ProductId>
+                  <ProductName>
+                    <b>Product: </b> Nike Shoes
+                  </ProductName>
+                  <ProductId>
+                    <b>Id: </b> Nike Shoes
+                  </ProductId>
                   <ProductColor color="#333" />
-                  <ProductSize><b>Size: </b> 37.5</ProductSize>
+                  <ProductSize>
+                    <b>Size: </b> 37.5
+                  </ProductSize>
                 </Details>
               </ProductDetail>
               <PriceDetail>
@@ -203,12 +207,18 @@ const Cart = () => {
             <Hr />
             <Product>
               <ProductDetail>
-                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png"/>
+                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png" />
                 <Details>
-                  <ProductName><b>Product: </b> Nike Shoes</ProductName>
-                  <ProductId><b>Id: </b> Nike Shoes</ProductId>
+                  <ProductName>
+                    <b>Product: </b> Nike Shoes
+                  </ProductName>
+                  <ProductId>
+                    <b>Id: </b> Nike Shoes
+                  </ProductId>
                   <ProductColor color="#333" />
-                  <ProductSize><b>Size: </b> 37.5</ProductSize>
+                  <ProductSize>
+                    <b>Size: </b> 37.5
+                  </ProductSize>
                 </Details>
               </ProductDetail>
               <PriceDetail>

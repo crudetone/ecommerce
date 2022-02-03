@@ -4,14 +4,14 @@ import Cart from './pages/Cart';
 // import Register from './pages/Register';
 // import Product from './pages/Product';
 // import ProductList from './pages/ProductList';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 
 const App = () => {
   return (
-    <Cart />
+    // <Cart />
     // <Login />
     // <Register />
-    // <Home />
+    <Home />
     // <ProductList />
     // <Product />
   );
