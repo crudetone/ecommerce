@@ -1,6 +1,7 @@
 import { Item } from "../models/CategoryItem";
 import { mobile } from "../responsive";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -44,14 +45,16 @@ const Button = styled.button`
 `;
 
 const CategoryItem = ({ ...props }: { item: Item }) => {
-  const { img, title } = props.item;
+  const { img, title, cat } = props.item;
   return (
     <Container>
-      <Image src={img} />
-      <Info>
-        <Title>{title}</Title>
-        <Button>shop now</Button>
-      </Info>
+      <Link to={`/products/${cat}`}>
+        <Image src={img} />
+        <Info>
+          <Title>{title}</Title>
+          <Button>shop now</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };

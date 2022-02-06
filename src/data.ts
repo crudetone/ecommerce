@@ -26,17 +26,20 @@ export const categories: Item[] = [
   {
     id: 1,
     img: 'https://images.pexels.com/photos/10320658/pexels-photo-10320658.jpeg',
-    title: 'SHIRT STYLE'
+    title: 'SHIRT STYLE',
+    cat: "women"
   },
   {
     id: 2,
     img: 'https://images.pexels.com/photos/8744023/pexels-photo-8744023.jpeg',
-    title: 'SHIRT STYLE'
+    title: 'SHIRT STYLE',
+    cat: "coat"
   },
   {
     id: 3,
     img: 'https://images.pexels.com/photos/10244899/pexels-photo-10244899.jpeg',
-    title: 'SHIRT STYLE'
+    title: 'SHIRT STYLE',
+    cat: "jeans"
   }
 ];
 
