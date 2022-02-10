@@ -1,5 +1,5 @@
 import { mobile } from "../responsive";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -40,15 +40,14 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
-  const location = useLocation();
-  const category = location.pathname.split('/')[2];
+  const category = useParams().category;
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState('newest');
+  const [sort, setSort] = useState("newest");
 
   const handleFilters = (e: any) => {
     const { value, name } = e.target;
     setFilters({ ...filters, [name]: value });
-    console.log('filters', filters);
+    console.log("filters", filters);
   };
 
   const handleSort = (e: any) => {
@@ -60,27 +59,32 @@ const ProductList = () => {
     <Container>
       <Navbar />
       <Announcement />
-      <Title>Dresses</Title>
+      <Title>{category}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select name="color" onChange={handleFilters} defaultValue="color">
-            <Option value='color' disabled>Color</Option>
-            <Option value='white'>White</Option>
-            <Option value='black'>Black</Option>
-            <Option value='red'>Red</Option>
-            <Option value='blue'>Blue</Option>
-            <Option value='yellow'>Yellow</Option>
-            <Option value='green'>Green</Option>
+            <Option value="color" disabled>
+              Color
+            </Option>
+            <Option value="white">white</Option>
+            <Option value="black">black</Option>
+            <Option value="red">red</Option>
+            <Option value="blue">blue</Option>
+            <Option value="yellow">yellow</Option>
+            <Option value="green">green</Option>
+            <Option value="gray">gray</Option>
           </Select>
           <Select name="size" onChange={handleFilters} defaultValue="size">
-            <Option value="size" disabled>Size</Option>
-            <Option value="xs">XS</Option>
-            <Option value="s">S</Option>
-            <Option value="m">M</Option>
-            <Option value="l">L</Option>
-            <Option value="xl">XL</Option>
-            <Option value="xxl">XXL</Option>
+            <Option value="size" disabled>
+              Size
+            </Option>
+            <Option value="xs">xs</Option>
+            <Option value="s">s</Option>
+            <Option value="m">m</Option>
+            <Option value="l">l</Option>
+            <Option value="xl">xl</Option>
+            <Option value="xxl">xxl</Option>
           </Select>
         </Filter>
         <Filter>

@@ -1,17 +1,21 @@
 import { Add, Remove } from "@material-ui/icons";
 import { mobile } from "../responsive";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import styled from "styled-components";
+import { publicRequest } from "../requestMethods";
+import { ProductItem } from "../models/Products";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   display: flex;
   padding: 50px;
-  ${mobile({ padding: '10px', flexDirection: 'column' })}
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -22,13 +26,13 @@ const Image = styled.img`
   height: 60vh;
   object-fit: cover;
   width: 100%;
-  ${mobile({ height: '40vh' })}
+  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0 50px;
-  ${mobile({ padding: '10px' })}
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -49,7 +53,7 @@ const FilterContainer = styled.div`
   justify-content: space-between;
   margin: 30px 0;
   width: 50%;
-  ${mobile({ width: '100%' })}
+  ${mobile({ width: "100%" })}
 `;
 
 const Filter = styled.div`
@@ -83,7 +87,7 @@ const AddContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 50%;
-  ${mobile({ width: '100%' })}
+  ${mobile({ width: "100%" })}
 `;
 
 const AmountContainer = styled.div`
@@ -116,49 +120,81 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const id = useParams().id;
+  const [product, setProduct] = useState<ProductItem | null>(null);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [color, setColor] = useState<string>('');
+  const [size, setSize] = useState<string>('');
+
+  const handleQuantity = (type: string) => {
+    switch (type) {
+      case "inc":
+        setQuantity(quantity + 1);
+        break;
+
+      case "dec":
+        if (quantity > 1) {
+          setQuantity(quantity - 1);
+        }
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const handleAddToCart = () => {}
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res: any = await publicRequest.get(`products/product/${id}`);
+        setProduct(res.data);
+        console.log("res.data: ", res.data);
+      } catch (error) {
+        console.log("error: ", error);
+      }
+    };
+
+    getProducts();
+  }, [id]);
+
   return (
     <Container>
       <Navbar />
+      {JSON.stringify(product)}
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <Image src={product?.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis
-            amet blanditiis explicabo ratione at alias doloremque labore
-            voluptas laudantium, quasi eius fugiat nostrum accusantium nihil
-            suscipit aspernatur dolorum. Recusandae, quae.
-          </Desc>
-          <Price>$ 20</Price>
+          <Title>{product?.title}</Title>
+          <Desc>{product?.desc}</Desc>
+          <Price>$ {product?.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="grey" />
+              {product?.color?.map((color: string, idx: number) => (
+                <FilterColor color={color} key={idx} onClick={() => setColor(color)} />
+              ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-                <FilterSizeOption>XXL</FilterSizeOption>
+              <FilterSize onChange={(event: any) => setSize(event.target.value)}>
+                {product?.size?.map((size: string, idx: number) => (
+                  <FilterSizeOption key={idx}>{size}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button>Add To Cart</Button>
+            <Button onClick={handleAddToCart}>Add To Cart</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

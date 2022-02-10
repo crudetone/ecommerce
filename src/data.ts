@@ -27,89 +27,106 @@ export const categories: Item[] = [
     id: 1,
     img: 'https://images.pexels.com/photos/10320658/pexels-photo-10320658.jpeg',
     title: 'SHIRT STYLE',
-    cat: "women"
+    cat: "nike"
   },
   {
     id: 2,
     img: 'https://images.pexels.com/photos/8744023/pexels-photo-8744023.jpeg',
     title: 'SHIRT STYLE',
-    cat: "coat"
+    cat: "nike"
   },
   {
     id: 3,
     img: 'https://images.pexels.com/photos/10244899/pexels-photo-10244899.jpeg',
     title: 'SHIRT STYLE',
-    cat: "jeans"
+    cat: "nike, adidas"
   }
 ];
 
 export const popularProducts: ProductItem[] = [
   {
     id: 1,
-    img: 'https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/mbhclghw/adidas-continental-80-stripes-j-mlodziezowe-sneakersy-bialy-h05061.jpg',
+    price: 50
   },
   {
     id: 2,
-    img: 'https://images.pexels.com/photos/5730956/pexels-photo-5730956.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/rcbjuqf9/adidas-superstar-w-damskie-sneakersy-bialy-h04076.jpg',
+    price: 50
   },
   {
     id: 3,
-    img: 'https://images.pexels.com/photos/2529157/pexels-photo-2529157.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/httpcolw/nike-air-max-2021-meskie-sneakersy-bialy-dh4245-400.jpg',
+    price: 50
   },
   {
     id: 4,
-    img: 'https://images.pexels.com/photos/1032110/pexels-photo-1032110.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/p4l5h8bv/nike-retro-gts-meskie-sneakersy-granatowy-da1446-400.jpg',
+    price: 50
   },
   {
     id: 5,
-    img: 'https://images.pexels.com/photos/3557818/pexels-photo-3557818.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/qtddrzy0/nike-react-vision-mlodziezowe-sneakersy-czarny-cd6888-006.jpg',
+    price: 50
   },
   {
     id: 6,
-    img: 'https://images.pexels.com/photos/3389419/pexels-photo-3389419.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/fh7lyxmu/nike-air-max-genome-damskie-sneakersy-bialy-dc4057-101.jpg',
+    price: 50
   },
   {
     id: 7,
-    img: 'https://images.pexels.com/photos/4846441/pexels-photo-4846441.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/ddkk5rff/adidas-top-ten-meskie-sneakersy-bialy-fv6131.jpg',
+    price: 50
   },
   {
     id: 8,
-    img: 'https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/qylrn4tp/adidas-forum-bold-w-damskie-sneakersy-bialy-fy4530.jpg',
+    price: 50
   },
   {
     id: 9,
-    img: 'https://images.pexels.com/photos/9869141/pexels-photo-9869141.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/wk7xz51e/adidas-superstar-w-damskie-sneakersy-bialy-gv8344.jpg',
+    price: 50
   },
   {
     id: 10,
-    img: 'https://images.pexels.com/photos/4695175/pexels-photo-4695175.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/4qqxykxu/adidas-court-tourino-j-mlodziezowe-sneakersy-bialy-h00765.jpg',
+    price: 50
   },
   {
     id: 11,
-    img: 'https://images.pexels.com/photos/4695177/pexels-photo-4695177.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/oudhjvys/adidas-superstar-w-damskie-sneakersy-bialy-gz8143.jpg',
+    price: 50
   },
   {
     id: 12,
-    img: 'https://images.pexels.com/photos/6540927/pexels-photo-6540927.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/rcbjuqf9/adidas-superstar-w-damskie-sneakersy-bialy-h04076.jpg',
+    price: 50
   },
   {
     id: 13,
-    img: 'https://images.pexels.com/photos/6540939/pexels-photo-6540939.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/ygygks8w/adidas-ny-90-j-mlodziezowe-sneakersy-bialy-h06591.jpg',
+    price: 50
   },
   {
     id: 14,
-    img: 'https://images.pexels.com/photos/6540980/pexels-photo-6540980.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/ed0h4law/adidas-terrex-skychaser-2-meskie-buty-outdoor-czarny-fw2921.jpg',
+    price: 50
   },
   {
     id: 15,
-    img: 'https://images.pexels.com/photos/6664300/pexels-photo-6664300.png'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/vpu7q8fh/adidas-ny-90-j-mlodziezowe-sneakersy-czarny-h01524.jpg',
+    price: 50
   },
   {
     id: 16,
-    img: 'https://images.pexels.com/photos/5584997/pexels-photo-5584997.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/nuvnmqkq/adidas-court-tourino-j-mlodziezowe-sneakersy-bialy-h00769.jpg',
+    price: 50
   },
   {
     id: 17,
-    img: 'https://images.pexels.com/photos/4273288/pexels-photo-4273288.jpeg'
+    img: 'https://sklep.sizeer.com/media/cache/gallery/rc/mbhclghw/adidas-continental-80-stripes-j-mlodziezowe-sneakersy-bialy-h05061.jpg',
+    price: 50
   },
 ]

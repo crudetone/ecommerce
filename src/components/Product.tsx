@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ProductItem } from "../models/Products";
 import styled from "styled-components";
 import {
@@ -79,7 +80,9 @@ const Product = ({ ...props }: { item: ProductItem }) => {
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
-          <SearchOutlined />
+          <Link to={`/product/${props.item._id}`}>
+            <SearchOutlined />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteBorderOutlined />

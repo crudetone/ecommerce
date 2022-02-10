@@ -1,4 +1,5 @@
 import { Badge } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { mobile } from '../responsive';
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
@@ -66,6 +67,12 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: '12px', marginLeft: '10px' })}
 `;
 
+const LinkItem = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+`;
+
 const Navbar: React.FC = () => {
   return (
     <Container>
@@ -78,7 +85,9 @@ const Navbar: React.FC = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>Devez Shop.</Logo>
+          <LinkItem to="/">
+            <Logo>Devez Shop.</Logo>
+          </LinkItem>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
