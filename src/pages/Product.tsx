@@ -143,7 +143,9 @@ const Product = () => {
     }
   };
 
-  const handleAddToCart = () => {}
+  const handleAddToCart = () => {
+    
+  }
 
   useEffect(() => {
     const getProducts = async () => {
