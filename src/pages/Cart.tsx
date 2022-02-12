@@ -4,6 +4,8 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { ProductItem } from "../models/Products";
 
 interface TopButtonProps {
   buttonType?: string;
@@ -163,6 +165,8 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const cart = useSelector((state: any) => state.cart);
+
   return (
     <Container>
       <Navbar />
@@ -179,63 +183,40 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product: </b> Nike Shoes
-                  </ProductName>
-                  <ProductId>
-                    <b>Id: </b> Nike Shoes
-                  </ProductId>
-                  <ProductColor color="#333" />
-                  <ProductSize>
-                    <b>Size: </b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
+            {cart?.products?.length ? cart.products.map((product: any) => (
+              <Product key={product.id}>
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product: </b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>Id: </b> {product.id}
+                    </ProductId>
+                    <ProductColor color={product.color} />
+                    <ProductSize>
+                      <b>Size: </b> {product.size}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>{product.quantity}</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>{product.price * product.quantity}</ProductPrice>
+                </PriceDetail>
+              </Product>
+            )) : null}
             <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/buty-meskie-air-max-270-7RW243.png" />
-                <Details>
-                  <ProductName>
-                    <b>Product: </b> Nike Shoes
-                  </ProductName>
-                  <ProductId>
-                    <b>Id: </b> Nike Shoes
-                  </ProductId>
-                  <ProductColor color="#333" />
-                  <ProductSize>
-                    <b>Size: </b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetail>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetail>
-            </Product>
           </Info>
           <Summary>
             <SummaryTitle>Order Summary</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice> 
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -247,7 +228,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>Checkout now</Button>
           </Summary>

@@ -8,9 +8,10 @@ const initialState = {
 
 const reducers = {
   addProducts: (state: any, { payload }: any) => {
+    const { price, quantity } = payload;
     state.quantity += 1;
-    state.products.push(payload.products);
-    state.total += payload.price;
+    state.products.push(payload);
+    state.total += price * quantity;
   }
 }
 
