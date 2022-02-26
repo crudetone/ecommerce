@@ -1,16 +1,16 @@
 import { Add, Remove } from "@material-ui/icons";
+import { addProducts } from "../redux/cartRedux";
 import { mobile } from "../responsive";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ProductItem } from "../models/Products";
+import { publicRequest } from "../requestMethods";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import styled from "styled-components";
-import { publicRequest } from "../requestMethods";
-import { ProductItem } from "../models/Products";
-import { addProducts } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
 
 const Container = styled.div``;
 
